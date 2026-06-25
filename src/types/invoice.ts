@@ -83,6 +83,8 @@ export interface Invoice {
   customerId?: string;
   /** Echo of `customPayload` from creation when stored. */
   customPayload?: string;
+  /** Hosted payment page URL; present on create, GET, list, and webhooks. */
+  paymentPageUrl: string;
   /** Present when the API recorded an initiation channel for this invoice. */
   source?: InitiationSource;
 }

@@ -170,7 +170,12 @@ describe('InvoiceClient.list', () => {
     const fake = createFakeFetch();
     fake.setResponse({
       body: {
-        data: [sampleWireInvoice],
+        data: [
+          {
+            ...sampleWireInvoice,
+            paymentPageUrl: 'https://pay.example/inv-1',
+          },
+        ],
         total: 1,
         page: 1,
         limit: 20,
@@ -198,6 +203,7 @@ describe('InvoiceClient.list', () => {
     expect(res.data[0].createdAt).toBe('2026-01-01T00:00:00.000Z');
     expect(res.data[0].source).toBe('api');
     expect(res.data[0].returnUrl).toBeUndefined();
+    expect(res.data[0].paymentPageUrl).toBe('https://pay.example/inv-1');
   });
 
   it('throws TypeError when `data` is not an array', async () => {
@@ -213,7 +219,14 @@ describe('InvoiceClient.list', () => {
 describe('InvoiceClient.get', () => {
   it('sends GET /invoice with id+accountId in the query', async () => {
     const fake = createFakeFetch();
-    fake.setResponse({ body: { data: sampleWireInvoice } });
+    fake.setResponse({
+      body: {
+        data: {
+          ...sampleWireInvoice,
+          paymentPageUrl: 'https://pay.example/inv-1',
+        },
+      },
+    });
     const client = buildClient({ fetchImpl: fake.fetch });
 
     const inv = await client.invoice.get({ accountId: 'acc-1', id: 'inv-1' });
@@ -223,11 +236,12 @@ describe('InvoiceClient.get', () => {
     expect(req.url).toBe(`${BASE}/invoice?accountId=acc-1&id=inv-1`);
     expect(inv.id).toBe('inv-1');
     expect(inv.createdAt).toBe('2026-01-01T00:00:00.000Z');
+    expect(inv.paymentPageUrl).toBe('https://pay.example/inv-1');
   });
 
   it('forwards `orderId` instead of `id`', async () => {
     const fake = createFakeFetch();
-    fake.setResponse({ body: { data: sampleWireInvoice } });
+    fake.setResponse({ body: { data: { ...sampleWireInvoice, paymentPageUrl: 'https://pay.example/inv-1' } } });
     const client = buildClient({ fetchImpl: fake.fetch });
     await client.invoice.get({ accountId: 'acc-1', orderId: 'ord-1' });
 
@@ -236,7 +250,7 @@ describe('InvoiceClient.get', () => {
 
   it('throws TypeError before fetch when accountId or selector is missing', async () => {
     const fake = createFakeFetch();
-    fake.setResponse({ body: { data: sampleWireInvoice } });
+    fake.setResponse({ body: { data: { ...sampleWireInvoice, paymentPageUrl: 'https://pay.example/inv-1' } } });
     const client = buildClient({ fetchImpl: fake.fetch });
     await expect(client.invoice.get({ accountId: '', id: 'inv-1' })).rejects.toThrow(
       'invoice.get: `accountId` is required.',
