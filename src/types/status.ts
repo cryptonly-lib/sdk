@@ -1,7 +1,6 @@
 /** Documented invoice lifecycle on the server. */
 export const InvoiceStatus = {
   CREATED: 'created',
-  DEPOSIT_PENDING: 'deposit_pending',
   PROCESSING: 'processing',
   PAID: 'paid',
   PARTIALLY_PAID: 'partially_paid',

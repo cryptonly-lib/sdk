@@ -38,8 +38,10 @@ export const CRYPTONLY_EXCEPTION_INVOICE_EXPIRED =
   'exceptions.invoice.expired' as const;
 export const CRYPTONLY_EXCEPTION_INVOICE_DEPOSIT_CONFLICT =
   'exceptions.invoice.depositConflict' as const;
-export const CRYPTONLY_EXCEPTION_INVOICE_NOT_IN_DEPOSIT_PENDING_STATUS =
-  'exceptions.invoice.notInDepositPendingStatus' as const;
+export const CRYPTONLY_EXCEPTION_INVOICE_DEPOSIT_ALREADY_ACTIVE =
+  'exceptions.invoice.depositAlreadyActive' as const;
+export const CRYPTONLY_EXCEPTION_INVOICE_NO_ACTIVE_DEPOSIT =
+  'exceptions.invoice.noActiveDeposit' as const;
 export const CRYPTONLY_EXCEPTION_INVOICE_CANNOT_CANCEL =
   'exceptions.invoice.cannotCancel' as const;
 
