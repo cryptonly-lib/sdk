@@ -5,7 +5,7 @@ Official JavaScript/TypeScript SDK for the Cryptonly merchant API.
 Use it to create invoices and deposits, manage withdrawals and balance conversions, reserve reusable deposit addresses, and work with merchant accounts from secure backend environments.
 
 - Website: [cryptonly.net](https://cryptonly.net)
-- Documentation: [cryptonly.gitbook.io/docs](https://cryptonly.gitbook.io/docs)
+- Documentation: [cryptonly.net/docs](https://cryptonly.net/docs)
 
 > This SDK is for **server-side use only**. Never expose your Cryptonly API key in browser code, mobile apps, or other client-side environments.
 
@@ -78,7 +78,7 @@ Import **`verifyInvoiceWebhook`**, **`verifyWithdrawalWebhook`**, or **`verifyDe
 
 The `data` object largely matches merchant **GET** invoice, **GET** withdrawal, or **GET** deposit; the account UUID is **`accountId`**. Webhooks include optional `previousStatus`.
 
-Obtain and rotate your webhook signing secret in the Cryptonly **admin app → Settings → Security** (the full key is shown once after rotate; store it like an API key). The signature is **HMAC-SHA256** over the exact raw request body bytes (UTF-8), sent as lowercase hex in `x-webhook-signature`. For threat model, replay handling, default webhook URLs, and integration examples, see [Cryptonly docs → webhooks](https://cryptonly.gitbook.io/docs).
+Obtain and rotate your webhook signing secret in the Cryptonly **admin app → Settings → Security** (the full key is shown once after rotate; store it like an API key). The signature is **HMAC-SHA256** over the exact raw request body bytes (UTF-8), sent as lowercase hex in `x-webhook-signature`. For threat model, replay handling, default webhook URLs, and integration examples, see [Cryptonly docs → webhooks](https://cryptonly.net/docs).
 
 ---
 
@@ -542,7 +542,7 @@ If a key is exposed, revoke it immediately and issue a new one.
 
 ## Related documentation
 
-For full API behavior and product-level flows, see the Cryptonly docs for:
+For full API behavior and product-level flows, see the [Cryptonly docs](https://cryptonly.net/docs), including:
 
 - API authorization
 - invoices
@@ -553,6 +553,14 @@ For full API behavior and product-level flows, see the Cryptonly docs for:
 - idempotency
 - webhooks
 - merchant accounts
+
+---
+
+## Contributing
+
+Source code and issue tracking live on GitHub: [github.com/cryptonly-net/sdk](https://github.com/cryptonly-net/sdk).
+
+Bug reports, feature requests, and pull requests are welcome. Open an issue before large changes so we can align on approach.
 
 ---
 
