@@ -15,11 +15,8 @@ const sampleQuote = {
   quoteId: '00000000-0000-7000-8000-000000000001',
   fromCryptoCurrencyCode: 'USDT_TRC20',
   toCryptoCurrencyCode: 'USDC_ERC20',
-  principalFromAmount: 100,
-  commissionAmount: 0.5,
-  totalFromDebit: 100.5,
-  toAmount: 99.95,
-  commissionUsd: 0.5,
+  fromAmount: 100,
+  toAmount: 99.5,
   expiresAt: '2026-01-01T00:01:00.000Z',
 };
 
@@ -29,11 +26,8 @@ describe('ConvertingClient', () => {
     const preview = {
       fromCryptoCurrencyCode: 'USDT_TRC20',
       toCryptoCurrencyCode: 'USDC_ERC20',
-      principalFromAmount: 100,
-      commissionAmount: 0.5,
-      totalFromDebit: 100.5,
-      toAmount: 99.95,
-      commissionUsd: 0.5,
+      fromAmount: 100,
+      toAmount: 99.5,
     };
     fake.setResponse({ body: { data: preview } });
     const client = buildClient(fake.fetch);

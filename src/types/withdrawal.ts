@@ -102,9 +102,7 @@ export interface WithdrawalAutoConvertPreview {
   fromCryptoCurrencyCode: string;
   toCryptoCurrencyCode: string;
   fromAmount: number;
-  totalFromDebit: number;
   toAmount: number;
-  commissionAmount: number;
 }
 
 /**
@@ -112,7 +110,8 @@ export interface WithdrawalAutoConvertPreview {
  *
  * `amount` stays in `cryptoCurrencyCode` because that is the value sent
  * on-chain. `totalDeduction` and `fee` are in `cryptoCurrencyCode`. When
- * `autoConvert` is set, its commission is in `fromCryptoCurrencyCode`.
+ * `autoConvert` is set, its debit is in `fromCryptoCurrencyCode`, at the
+ * standard conversion rate.
  */
 export interface WithdrawalQuote {
   /** Opaque id; submit to `POST /withdrawal/commit` to commit. */

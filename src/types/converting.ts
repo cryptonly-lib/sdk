@@ -3,9 +3,9 @@ export interface ConvertingQuoteRequest {
   accountId: string;
   fromCryptoCurrencyCode: string;
   toCryptoCurrencyCode: string;
-  /** Principal in `fromCryptoCurrencyCode` (commission is additional). */
+  /** Source amount to convert when quoting by debit side. */
   fromAmount?: number;
-  /** Desired credit in `toCryptoCurrencyCode`; server derives principal. */
+  /** Desired credit in `toCryptoCurrencyCode`; server derives `fromAmount`. */
   toAmount?: number;
 }
 
@@ -13,11 +13,8 @@ export interface ConvertingQuoteRequest {
 export interface ConvertingPreview {
   fromCryptoCurrencyCode: string;
   toCryptoCurrencyCode: string;
-  principalFromAmount: number;
-  commissionAmount: number;
-  totalFromDebit: number;
+  fromAmount: number;
   toAmount: number;
-  commissionUsd: number;
 }
 
 export interface ConvertingPreviewDataResponse {
@@ -27,11 +24,8 @@ export interface ConvertingQuote {
   quoteId: string;
   fromCryptoCurrencyCode: string;
   toCryptoCurrencyCode: string;
-  principalFromAmount: number;
-  commissionAmount: number;
-  totalFromDebit: number;
+  fromAmount: number;
   toAmount: number;
-  commissionUsd: number;
   expiresAt: string;
 }
 
@@ -49,11 +43,8 @@ export interface ConvertingCommitResult {
   quoteId: string;
   fromCryptoCurrencyCode: string;
   toCryptoCurrencyCode: string;
-  principalFromAmount: number;
-  commissionAmount: number;
-  totalFromDebit: number;
+  fromAmount: number;
   toAmount: number;
-  commissionUsd: number;
   completedAt: string;
 }
 
