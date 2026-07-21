@@ -558,7 +558,7 @@ For full API behavior and product-level flows, see the [Cryptonly docs](https://
 
 ## Contributing
 
-Source code and issue tracking live on GitHub: [github.com/cryptonly-net/sdk](https://github.com/cryptonly-net/sdk).
+Source code and issue tracking live on GitHub: [github.com/cryptonly-net/cryptonly-typescript-sdk](https://github.com/cryptonly-net/cryptonly-typescript-sdk).
 
 Bug reports, feature requests, and pull requests are welcome. Open an issue before large changes so we can align on approach.
 
